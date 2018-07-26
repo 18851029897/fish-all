@@ -17,7 +17,7 @@
         <module>fish-model</module>
         <module>fish-dao</module>
         <module>fish-service</module>
-        <module>fish-bms</module>
+        <module>fish-back</module>
     </modules>
 
     <parent>

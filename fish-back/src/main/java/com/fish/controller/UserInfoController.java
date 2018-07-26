@@ -2,6 +2,7 @@ package com.fish.controller;
 
 import com.fish.model.user.UserInfo;
 import com.fish.service.user.IUserInfoService;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +28,9 @@ public class UserInfoController {
     @RequestMapping(value = "/show")
     @ResponseBody
     public String show(Integer userId) {
-//        UserInfo user = this.userInfoService.findUserByUserId(userId);\
+//        UserInfo user = this.userInfoService.findUserByUserId(userId);
         List<UserInfo> list = this.userInfoService.findUserList();
-        return "123";
+        return new Gson().toJson(list);
     }
 
 }
