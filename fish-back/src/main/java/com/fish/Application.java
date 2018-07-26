@@ -6,14 +6,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * Created by fish on 2018/7/14.
+ * 桑丰环保
+ * User: jiajing
+ * Date: 2016/12/28 上午11:30
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
-        System.out.println("success");
     }
-
 }

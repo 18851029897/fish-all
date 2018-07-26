@@ -7,16 +7,15 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
-import java.util.List;
 
 /**
  * Created by fish on 2018/7/26.
  */
 @Configuration
-public class ProjectConfig extends WebMvcConfigurationSupport {
+public class ProjectConfig implements WebMvcConfigurer {
 
     /**
      * 过滤编码
@@ -27,12 +26,6 @@ public class ProjectConfig extends WebMvcConfigurationSupport {
     public HttpMessageConverter<String> responseBodyConverter() {
         StringHttpMessageConverter converter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
         return converter;
-    }
-
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        super.configureMessageConverters(converters);
-        converters.add(responseBodyConverter());
     }
 
     @Override
@@ -49,6 +42,6 @@ public class ProjectConfig extends WebMvcConfigurationSupport {
     public void addInterceptors(InterceptorRegistry registry) {
         //这里可以添加多个拦截器
         registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/login").excludePathPatterns("/validateCode");
-        super.addInterceptors(registry);
     }
+
 }
