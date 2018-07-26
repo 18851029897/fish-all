@@ -17,6 +17,12 @@
             <artifactId>fish-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fish</groupId>
+            <artifactId>fish-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

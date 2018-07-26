@@ -17,18 +17,20 @@
 </head>
 
 <body>
-<form class="form-signin">
+<form id="loginForm" class="form-signin" action="${pageContext.request.contextPath}/login" method="post">
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">User Login</h1>
     </div>
 
     <div class="form-group">
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="text" class="form-control" name="userId" aria-describedby="emailHelp" placeholder="Enter email">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input type="password" class="form-control" name="userNickName" placeholder="Password">
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
+
+<script src="${pageContext.request.contextPath}/js/login/login.js"></script>
 </body>
 </html>
