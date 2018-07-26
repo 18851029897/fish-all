@@ -18,6 +18,7 @@
         <module>fish-dao</module>
         <module>fish-service</module>
         <module>fish-back</module>
+        <module>fish-common</module>
     </modules>
 
     <parent>
