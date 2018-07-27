@@ -1,13 +1,14 @@
 package com.fish.model.user;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by fish on 2018/7/14.
  */
 @Entity
 @Table(name = "user_info")
-public class UserInfo {
+public class UserInfo implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

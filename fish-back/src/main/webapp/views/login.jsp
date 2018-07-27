@@ -23,10 +23,10 @@
     </div>
 
     <div class="form-group">
-        <input type="text" class="form-control" name="userId" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="text" class="form-control" name="userId" placeholder="Enter phone"/>
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" name="userNickName" placeholder="Password">
+        <input type="password" class="form-control" name="userNickName" placeholder="Password"/>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
