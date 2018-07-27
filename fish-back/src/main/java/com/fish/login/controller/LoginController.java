@@ -2,6 +2,7 @@ package com.fish.login.controller;
 
 import com.fish.back.DataResponse;
 import com.fish.model.user.UserInfo;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,8 +23,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public DataResponse login(UserInfo params) {
-        System.out.print(1);
-        return null;
+        return new DataResponse(1000, "success", new Gson().toJson(params));
     }
 
 }
