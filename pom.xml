@@ -19,6 +19,7 @@
         <module>fish-service</module>
         <module>fish-back</module>
         <module>fish-common</module>
+        <module>fish-wechat</module>
     </modules>
 
     <parent>
