@@ -10,11 +10,18 @@ import java.util.List;
  */
 @Mapper
 public interface UserInfoMapper {
+
+
     @Select("select user_id as userId, user_nick_name as userNickName from user_info where user_id = #{userId}")
     @ResultType(UserInfo.class)
     UserInfo findByUserId(Integer userId);
 
-    @Select("select user_id as userId, user_nick_name as userNickName from user_info")
-    @ResultType(List.class)
+    //    @Select("select user_id as userId, user_nick_name as userNickName from user_info")
+    //    @ResultType(List.class)
+    @SelectProvider(type = UserInfoProvider.class, method = "findUserList")
+    @Results({
+            @Result(property = "userId", column = "USER_ID"),
+            @Result(property = "userNickName", column = "USER_NICK_NAME")
+    })
     List<UserInfo> findUserList();
 }
