@@ -11,5 +11,5 @@ public interface IUserInfoService {
 
     UserInfo findUserByUserId(Integer userId);
 
-    List<UserInfo> findUserList();
+    List<UserInfo> findUserList(UserInfo params);
 }

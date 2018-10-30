@@ -1,7 +1,9 @@
 package com.fish.login.controller;
 
 import com.fish.back.DataResponse;
+import com.fish.model.user.UserInfo;
 import com.fish.model.user.UserVipInfo;
+import com.fish.service.user.IUserInfoService;
 import com.fish.service.user.IUserVipInfoService;
 import com.fish.util.EmptyUtil;
 import com.fish.util.MD5Util;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -21,6 +24,9 @@ public class LoginController {
 
     @Autowired
     private IUserVipInfoService userVipInfoService;
+
+    @Autowired
+    private IUserInfoService userInfoService;
 
 
     @RequestMapping("")
@@ -42,6 +48,13 @@ public class LoginController {
         } else {
             return new DataResponse(1001, "用户名或密码错误.");
         }
+    }
+
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @ResponseBody
+    public DataResponse test(UserInfo params) {
+        return new DataResponse(1000, this.userInfoService.findUserList(params));
     }
 
 }

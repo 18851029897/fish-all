@@ -23,8 +23,8 @@ public class UserInfoService implements IUserInfoService {
     }
 
     @Override
-    public List<UserInfo> findUserList() {
-        return this.userInfoMapper.findUserList();
+    public List<UserInfo> findUserList(UserInfo params) {
+        return this.userInfoMapper.findUserList(params);
     }
 
 }
