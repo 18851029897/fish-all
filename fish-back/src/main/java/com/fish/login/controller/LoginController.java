@@ -10,10 +10,7 @@ import com.fish.util.MD5Util;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -51,9 +48,9 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
     @ResponseBody
-    public DataResponse test(UserInfo params) {
+    public DataResponse test(@RequestBody UserInfo params) {
         return new DataResponse(1000, this.userInfoService.findUserList(params));
     }
 
