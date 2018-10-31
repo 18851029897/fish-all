@@ -1,8 +1,11 @@
 package com.fish.service.user.impl;
 
 import com.fish.service.user.IRedisService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
@@ -16,9 +19,17 @@ public class RedisService implements IRedisService {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
+    @Autowired
+    private JedisPool jedisPool;
+
     @Override
     public void set(String key, String value) {
-        this.redisTemplate.opsForValue().set(key, value);
+        Jedis jedis = jedisPool.getResource();
+        boolean keyExist = jedis.exists(key);
+        if (keyExist) {
+            jedis.del(key);
+        }
+        jedis.set(key, value);
     }
 
     @Override

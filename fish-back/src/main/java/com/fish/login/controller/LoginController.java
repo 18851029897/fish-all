@@ -59,7 +59,8 @@ public class LoginController {
     @ResponseBody
     public DataResponse test(@RequestBody UserInfo params) {
         List<UserInfo> data = this.userInfoService.findUserList(params);
-        this.redisService.set(RedisConstant.USER_INFO_LIST, new Gson().toJson(data), 50);
+//        this.redisService.set(RedisConstant.USER_INFO_LIST, new Gson().toJson(data), 50);
+        this.redisService.set(RedisConstant.USER_INFO_LIST, new Gson().toJson(data));
         return new DataResponse(1000, data);
     }
 
