@@ -10,6 +10,14 @@ public interface IRedisService {
      *
      * @param key
      * @param value
+     */
+    void set(String key, String value);
+
+    /**
+     * 保存到缓存
+     *
+     * @param key
+     * @param value
      * @param timeOut 超时时间 秒
      */
     void set(String key, String value, long timeOut);

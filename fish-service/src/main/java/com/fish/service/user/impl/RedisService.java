@@ -17,6 +17,11 @@ public class RedisService implements IRedisService {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override
+    public void set(String key, String value) {
+        this.redisTemplate.opsForValue().set(key, value);
+    }
+
+    @Override
     public void set(String key, String value, long timeOut) {
         this.redisTemplate.opsForValue().set(key, value, timeOut, TimeUnit.SECONDS);
     }
