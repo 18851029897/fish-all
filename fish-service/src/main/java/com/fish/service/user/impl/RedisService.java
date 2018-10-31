@@ -23,7 +23,7 @@ public class RedisService implements IRedisService {
 
     @Override
     public String get(String key) {
-        return null;
+        return this.redisTemplate.opsForValue().get(key).toString();
     }
 
     @Override

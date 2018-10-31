@@ -1,4 +1,4 @@
-package com.fish.util;
+package com.fish.common.util;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;

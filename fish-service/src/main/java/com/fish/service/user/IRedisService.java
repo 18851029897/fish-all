@@ -6,17 +6,26 @@ package com.fish.service.user;
 public interface IRedisService {
 
     /**
-     * set存数据 * @param key * @param value * @return
+     * 保存到缓存
+     *
+     * @param key
+     * @param value
+     * @param timeOut 超时时间 秒
      */
     void set(String key, String value, long timeOut);
 
     /**
-     * get获取数据 * @param key * @return
+     * 通过key获取
+     *
+     * @param key
+     * @return
      */
     String get(String key);
 
     /**
-     * 移除数据 * @param key * @return
+     * 通过key移除
+     *
+     * @param key
      */
     void remove(String key);
 

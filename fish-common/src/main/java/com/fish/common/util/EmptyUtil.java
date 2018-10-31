@@ -1,4 +1,4 @@
-package com.fish.util;
+package com.fish.common.util;
 
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;

@@ -1,4 +1,4 @@
-package com.fish.util;
+package com.fish.common.util;
 
 import javax.net.ssl.X509TrustManager;
 import java.security.cert.CertificateException;

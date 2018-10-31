@@ -1,7 +1,7 @@
 package com.fish.dao.sql;
 
 import com.fish.model.user.UserInfo;
-import com.fish.util.EmptyUtil;
+import com.fish.common.util.EmptyUtil;
 import org.apache.ibatis.jdbc.SQL;
 
 /**

@@ -1,4 +1,4 @@
-package com.fish.util;
+package com.fish.common.util;
 
 /**
  * Created by fish on 2018/7/27.

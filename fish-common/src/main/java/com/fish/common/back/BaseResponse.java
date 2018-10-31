@@ -1,4 +1,4 @@
-package com.fish.back;
+package com.fish.common.back;
 
 import java.io.Serializable;
 import java.util.Date;

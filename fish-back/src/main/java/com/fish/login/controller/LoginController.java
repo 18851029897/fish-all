@@ -1,17 +1,20 @@
 package com.fish.login.controller;
 
-import com.fish.back.DataResponse;
+import com.fish.common.back.DataResponse;
+import com.fish.common.constant.RedisConstant;
 import com.fish.model.user.UserInfo;
 import com.fish.model.user.UserVipInfo;
 import com.fish.service.user.IUserInfoService;
 import com.fish.service.user.IUserVipInfoService;
 import com.fish.service.user.impl.RedisService;
-import com.fish.util.EmptyUtil;
-import com.fish.util.MD5Util;
+import com.fish.common.util.EmptyUtil;
+import com.fish.common.util.MD5Util;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -55,8 +58,9 @@ public class LoginController {
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     @ResponseBody
     public DataResponse test(@RequestBody UserInfo params) {
-        this.redisService.set("test", "1234", 50);
-        return new DataResponse(1000, this.userInfoService.findUserList(params));
+        List<UserInfo> data = this.userInfoService.findUserList(params);
+        this.redisService.set(RedisConstant.USER_INFO_LIST, new Gson().toJson(data), 50);
+        return new DataResponse(1000, data);
     }
 
 }

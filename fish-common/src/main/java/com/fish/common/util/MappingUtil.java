@@ -1,4 +1,4 @@
-package com.fish.util;
+package com.fish.common.util;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import java.lang.reflect.Field;
