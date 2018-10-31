@@ -8,7 +8,7 @@ public interface IRedisService {
     /**
      * set存数据 * @param key * @param value * @return
      */
-    boolean set(String key, String value);
+    void set(String key, String value, long timeOut);
 
     /**
      * get获取数据 * @param key * @return
@@ -18,6 +18,6 @@ public interface IRedisService {
     /**
      * 移除数据 * @param key * @return
      */
-    boolean remove(String key);
+    void remove(String key);
 
 }

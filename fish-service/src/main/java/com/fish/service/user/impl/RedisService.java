@@ -1,14 +1,11 @@
 package com.fish.service.user.impl;
 
 import com.fish.service.user.IRedisService;
-import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by fishs on 2018/10/31.
@@ -20,16 +17,8 @@ public class RedisService implements IRedisService {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override
-    public boolean set(String key, String value) {
-        boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
-            @Override
-            public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
-                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
-                connection.set(serializer.serialize(key), serializer.serialize(value));
-                return true;
-            }
-        });
-        return result;
+    public void set(String key, String value, long timeOut) {
+        this.redisTemplate.opsForValue().set(key, value, timeOut, TimeUnit.SECONDS);
     }
 
     @Override
@@ -38,7 +27,7 @@ public class RedisService implements IRedisService {
     }
 
     @Override
-    public boolean remove(String key) {
-        return false;
+    public void remove(String key) {
+        this.redisTemplate.delete(key);
     }
 }

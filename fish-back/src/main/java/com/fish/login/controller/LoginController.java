@@ -55,7 +55,7 @@ public class LoginController {
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     @ResponseBody
     public DataResponse test(@RequestBody UserInfo params) {
-        this.redisService.set("test", "123");
+        this.redisService.set("test", "1234", 50);
         return new DataResponse(1000, this.userInfoService.findUserList(params));
     }
 
