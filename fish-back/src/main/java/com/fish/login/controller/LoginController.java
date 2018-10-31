@@ -5,6 +5,7 @@ import com.fish.model.user.UserInfo;
 import com.fish.model.user.UserVipInfo;
 import com.fish.service.user.IUserInfoService;
 import com.fish.service.user.IUserVipInfoService;
+import com.fish.service.user.impl.RedisService;
 import com.fish.util.EmptyUtil;
 import com.fish.util.MD5Util;
 import com.google.gson.Gson;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 public class LoginController {
+
+    @Autowired
+    private RedisService redisService;
 
     @Autowired
     private IUserVipInfoService userVipInfoService;
@@ -51,6 +55,7 @@ public class LoginController {
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     @ResponseBody
     public DataResponse test(@RequestBody UserInfo params) {
+        this.redisService.set("test", "123");
         return new DataResponse(1000, this.userInfoService.findUserList(params));
     }
 
