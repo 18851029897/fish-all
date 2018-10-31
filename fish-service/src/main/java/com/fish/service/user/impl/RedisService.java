@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 public class RedisService implements IRedisService {
 
     @Resource
-    private RedisTemplate<String, ?> redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Override
     public boolean set(String key, String value) {
