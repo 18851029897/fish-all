@@ -4,9 +4,9 @@ import com.fish.common.back.DataResponse;
 import com.fish.common.constant.RedisConstant;
 import com.fish.model.user.UserInfo;
 import com.fish.model.user.UserVipInfo;
+import com.fish.service.user.IRedisService;
 import com.fish.service.user.IUserInfoService;
 import com.fish.service.user.IUserVipInfoService;
-import com.fish.service.user.impl.RedisService;
 import com.fish.common.util.EmptyUtil;
 import com.fish.common.util.MD5Util;
 import com.google.gson.Gson;
@@ -24,7 +24,7 @@ import java.util.List;
 public class LoginController {
 
     @Autowired
-    private RedisService redisService;
+    private IRedisService redisService;
 
     @Autowired
     private IUserVipInfoService userVipInfoService;
@@ -59,7 +59,6 @@ public class LoginController {
     @ResponseBody
     public DataResponse test(@RequestBody UserInfo params) {
         List<UserInfo> data = this.userInfoService.findUserList(params);
-//        this.redisService.set(RedisConstant.USER_INFO_LIST, new Gson().toJson(data), 50);
         this.redisService.set(RedisConstant.USER_INFO_LIST, new Gson().toJson(data));
         return new DataResponse(1000, data);
     }
