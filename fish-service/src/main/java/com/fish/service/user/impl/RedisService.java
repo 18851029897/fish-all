@@ -3,6 +3,7 @@ package com.fish.service.user.impl;
 import com.fish.common.constant.RedisConstant;
 import com.fish.service.user.IRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
@@ -19,6 +20,9 @@ public class RedisService implements IRedisService {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+
+    @Resource
+    private MongoTemplate mongoTemplate;
 
     @Autowired
     private JedisPool jedisPool;
