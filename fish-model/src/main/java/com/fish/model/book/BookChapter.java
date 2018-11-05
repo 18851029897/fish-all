@@ -1,14 +1,15 @@
 package com.fish.model.book;
 
-import com.fish.model.GlobalModel;
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by fish on 2018/11/5.
  */
 @Entity
 @Table(name = "book_chapter")
-public class BookChapter extends GlobalModel {
+public class BookChapter implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,10 @@ public class BookChapter extends GlobalModel {
     private Integer isDel;
 
     private Integer sort;
+
+    private Date modifyDate;
+
+    private Date createDate;
 
     public Integer getId() {
         return id;
@@ -80,5 +85,21 @@ public class BookChapter extends GlobalModel {
 
     public void setSort(Integer sort) {
         this.sort = sort;
+    }
+
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }

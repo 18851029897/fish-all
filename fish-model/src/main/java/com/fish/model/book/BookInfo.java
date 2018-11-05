@@ -1,15 +1,16 @@
 package com.fish.model.book;
 
-import com.fish.model.GlobalModel;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by fish on 2018/11/5.
  */
 @Entity
 @Table(name = "book_info")
-public class BookInfo extends GlobalModel {
+public class BookInfo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +35,10 @@ public class BookInfo extends GlobalModel {
     private Integer sort;
 
     private Integer status;
+
+    private Date modifyDate;
+
+    private Date createDate;
 
     public Integer getId() {
         return id;
@@ -121,6 +126,22 @@ public class BookInfo extends GlobalModel {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
 }

@@ -1,15 +1,14 @@
 package com.fish.model.book;
 
-import com.fish.model.GlobalModel;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by fish on 2018/11/5.
  */
 @Entity
 @Table(name = "book_type")
-public class BookType extends GlobalModel {
+public class BookType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
