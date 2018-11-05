@@ -1,16 +1,13 @@
 package com.fish.service.user.impl;
 
-import com.fish.common.constant.RedisConstant;
 import com.fish.service.user.IRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 import javax.annotation.Resource;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by fish on 2018/10/31.
@@ -19,32 +16,32 @@ import java.util.concurrent.TimeUnit;
 public class RedisService implements IRedisService {
 
     @Resource
-    private RedisTemplate<String, Object> redisTemplate;
-
-    @Resource
     private MongoTemplate mongoTemplate;
 
     @Autowired
     private JedisPool jedisPool;
 
     @Override
-    public void set(String key, String value) {
+    public void set(String key, Integer timeOut, String value) {
         Jedis jedis = jedisPool.getResource();
-        jedis.setex(key, RedisConstant.TIME_OUT, value);
+        jedis.setex(key, timeOut, value);
     }
 
     @Override
-    public void set(String key, String value, long timeOut) {
-        this.redisTemplate.opsForValue().set(key, value, timeOut, TimeUnit.SECONDS);
+    public void set(String key, String value) {
+        Jedis jedis = jedisPool.getResource();
+        jedis.set(key, value);
     }
 
     @Override
     public String get(String key) {
-        return this.redisTemplate.opsForValue().get(key).toString();
+        Jedis jedis = jedisPool.getResource();
+        return jedis.get(key);
     }
 
     @Override
     public void remove(String key) {
-        this.redisTemplate.delete(key);
+        Jedis jedis = jedisPool.getResource();
+        jedis.del(key);
     }
 }

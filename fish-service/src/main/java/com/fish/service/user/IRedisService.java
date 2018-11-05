@@ -9,18 +9,18 @@ public interface IRedisService {
      * 保存到缓存
      *
      * @param key
+     * @param timeOut 超时时间 秒
      * @param value
      */
-    void set(String key, String value);
+    void set(String key, Integer timeOut, String value);
 
     /**
      * 保存到缓存
      *
      * @param key
      * @param value
-     * @param timeOut 超时时间 秒
      */
-    void set(String key, String value, long timeOut);
+    void set(String key, String value);
 
     /**
      * 通过key获取
