@@ -11,6 +11,10 @@ import java.math.BigDecimal;
 @Table(name = "book_info")
 public class BookInfo extends GlobalModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String bookName;
 
     private BigDecimal bookPrice;
@@ -31,6 +35,13 @@ public class BookInfo extends GlobalModel {
 
     private Integer status;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getBookName() {
         return bookName;

@@ -1,9 +1,7 @@
 package com.fish.model.book;
 
 import com.fish.model.GlobalModel;
-
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by fish on 2018/11/5.
@@ -11,6 +9,10 @@ import java.util.Date;
 @Entity
 @Table(name = "book_chapter")
 public class BookChapter extends GlobalModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String chapterName;
 
@@ -23,6 +25,14 @@ public class BookChapter extends GlobalModel {
     private Integer isDel;
 
     private Integer sort;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getChapterName() {
         return chapterName;

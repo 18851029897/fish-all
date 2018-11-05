@@ -53,14 +53,4 @@ public class LoginController {
             return new DataResponse(1001, "用户名或密码错误.");
         }
     }
-
-
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    @ResponseBody
-    public DataResponse test(@RequestBody UserInfo params) {
-        List<UserInfo> data = this.userInfoService.findUserList(params);
-        this.redisService.set(RedisConstant.USER_INFO_LIST, new Gson().toJson(data));
-        return new DataResponse(1000, data);
-    }
-
 }

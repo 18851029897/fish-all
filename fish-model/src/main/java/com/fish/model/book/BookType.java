@@ -11,9 +11,21 @@ import javax.persistence.*;
 @Table(name = "book_type")
 public class BookType extends GlobalModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String typeName;
 
     private String typeBgImg;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTypeName() {
         return typeName;
