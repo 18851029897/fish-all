@@ -1,4 +1,4 @@
-package com.fish.login.controller;
+package com.fish.controller.login;
 
 import com.fish.common.back.DataResponse;
 import com.fish.common.constant.RedisConstant;

@@ -1,4 +1,4 @@
-package com.fish.login.vo;
+package com.fish.controller.login.vo;
 
 import com.fish.model.book.BookInfo;
 

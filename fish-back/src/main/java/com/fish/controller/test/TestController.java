@@ -1,10 +1,10 @@
-package com.fish.login.controller;
+package com.fish.controller.test;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fish.common.back.DataResponse;
 import com.fish.common.constant.RedisConstant;
 import com.fish.common.util.MappingUtil;
-import com.fish.login.vo.BookListVO;
+import com.fish.controller.login.vo.BookListVO;
 import com.fish.model.book.BookInfo;
 import com.fish.model.book.BookType;
 import com.fish.model.user.UserInfo;
@@ -20,9 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by fish on 2018/11/5.
