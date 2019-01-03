@@ -10,7 +10,6 @@ import com.fish.model.book.BookType;
 import com.fish.model.user.UserInfo;
 import com.fish.service.book.IBookInfoService;
 import com.fish.service.book.IBookTypeService;
-import com.fish.service.user.IRedisService;
 import com.fish.service.user.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,9 +28,6 @@ import java.util.List;
 public class TestController {
 
     @Autowired
-    private IRedisService redisService;
-
-    @Autowired
     private IUserInfoService userInfoService;
 
     @Autowired
@@ -42,15 +38,6 @@ public class TestController {
 
     public static void main(String args[]) {
         System.out.println(MappingUtil.getResultsStr(BookInfo.class));
-    }
-
-
-    @RequestMapping(value = "/testRedis", method = RequestMethod.POST)
-    @ResponseBody
-    public DataResponse testRedis(@RequestBody UserInfo params) {
-        List<UserInfo> data = this.userInfoService.findUserList(params);
-        this.redisService.set(RedisConstant.USER_INFO_LIST, JSONObject.toJSONString(data));
-        return new DataResponse(1000, data);
     }
 
 

@@ -1,10 +1,7 @@
 package com.fish.controller.login;
 
 import com.fish.common.back.DataResponse;
-import com.fish.common.constant.RedisConstant;
-import com.fish.model.user.UserInfo;
 import com.fish.model.user.UserVipInfo;
-import com.fish.service.user.IRedisService;
 import com.fish.service.user.IUserInfoService;
 import com.fish.service.user.IUserVipInfoService;
 import com.fish.common.util.EmptyUtil;
@@ -14,17 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 
 /**
  * Created by fish on 2018/7/26.
  */
 @Controller
 public class LoginController {
-
-    @Autowired
-    private IRedisService redisService;
 
     @Autowired
     private IUserVipInfoService userVipInfoService;

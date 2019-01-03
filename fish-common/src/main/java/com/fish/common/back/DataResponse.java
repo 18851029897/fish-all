@@ -1,5 +1,7 @@
 package com.fish.common.back;
 
+import com.google.gson.Gson;
+
 /**
  * Created by fish on 2018/7/26.
  */
@@ -25,7 +27,7 @@ public class DataResponse extends BaseResponse {
 
     public DataResponse(Integer code, Object data) {
         super(true, code);
-        this.data = data;
+        this.data = new Gson().toJson(data);
     }
 
     public DataResponse(Integer code, String message, Object data) {
